@@ -75,6 +75,7 @@ SSh port
   sudo get clone https://github.com/mahavasu/Item-Catalog
 
 Summary of Software Installed
+
 	Full package update/upgrade
 	Apache2
 	git
