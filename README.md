@@ -1,7 +1,10 @@
 # Linux-configuration
 IP
+
  52.89.75.35
+ 
 SSh port 
+
  2200
 
 1. Lauch virtual machine with your Udacity account loggin in.
