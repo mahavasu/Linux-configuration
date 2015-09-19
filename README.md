@@ -66,13 +66,19 @@ SSh port
 11.To Create a new user named catalog that has limited permissions 
 
    sudo su - postgres
+   
    psql
+   
    postgres=# CREATE USER catalog WITH PASSWORD 'secure password';
+   
    postgres=# GRANT SELECT, UPDATE, INSERT ON catalog TO catalog;
+   
    postgres=# \q
+   
    exit
    
-12.To Install git, clone and setup Catalog App projec
+12.To Install git, clone and setup Catalog App project
+
   sudo apt-get install git
   sudo cd/var/www
   sudo get clone https://github.com/mahavasu/Item-Catalog
