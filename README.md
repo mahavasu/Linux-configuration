@@ -153,7 +153,7 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
    
    sudo apt-get install libpq-dev
 
-10 To Install the required packages for the Item Catalog web application
+10. To Install the required packages for the Item Catalog web application
 
    sudo pip install flask
    
@@ -168,7 +168,9 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
 11.To Create a new user named catalog that has limited permissions 
 
    sudo su - postgres
+   
    psql
+   
    postgres=# CREATE USER catalog WITH PASSWORD 'Pass123';
    # CREATE DATABASE catalog WITH OWNER catalog;
    Connect to the database catalog # \c catalog
