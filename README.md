@@ -114,7 +114,7 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
    
    To login as grader
    
-    ssh grader@52.89.19.8 -p2200 -i ~/.ssh/id_rsa
+    ssh grader@52.89.19.8 -p22 -i ~/.ssh/id_rsa
     
 6. To Update all currently installed packages
 
@@ -127,6 +127,8 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
     sudo nano -c /etc/ssh/sshd_config then change port from 22 to 2200
     
     service ssh restart
+    
+    ssh grader@52.89.19.8 -p2200 -i ~/.ssh/id_rsa
 
 6. To configure the uncomplicated Firewall(UFW) to only allow incoming connection forSSH (port 2200), HTTP (port 80), and NTP (port 123)
 
