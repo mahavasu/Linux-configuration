@@ -73,15 +73,19 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
     mv ~/Downloads/udacity_key.rsa ~/.ssh/
 
     Open your terminal and type in
+    
     chmod 600 ~/.ssh/udacity_key.rsa
 
     In your terminal, type in
+    
     ssh -i ~/.ssh/udacity_key.rsa root@52.89.19.8
 
 2. To Create a new user name grader
 
    adduser grader
+   
    Connect to the user
+   
    su - grader
 
 3. To give the grader the permission sudo
@@ -99,11 +103,13 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
 5. Paste the contents in the remote server key file where the user grader is connected
 
     touch .ssh/authorized_keys
+    
     nano .ssh/authorized_keys
 
    To Change the autorized_key previlages
 
     chmod 700 .ssh
+    
     chmod 644 .ssh/authorized_keys
    
    To login as grader
@@ -113,17 +119,21 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
 6. To Update all currently installed packages
 
     sudo apt-get update
+    
     sudo apt-get upgrade
 
 7. To change the SSH port from 22 to 2200   
 
     sudo nano -c /etc/ssh/sshd_config then change port from 22 to 2200
+    
     service ssh restart
 
 6. To configure the uncomplicated Firewall(UFW) to only allow incoming connection forSSH (port 2200), HTTP (port 80), and NTP (port 123)
 
    sudo ufw allow 2200/tcp
+   
    sudo ufw allow 80/tcp
+   
    sudo ufw allow 123/tcp
 
 7. To Configure the local timezone to UTC
@@ -133,20 +143,26 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
 8. To Install and configure Apache to serve a Python mod_wsgi application
 
    sudo apt-get install apache2
+   
    sudo apt-get install python-setuptools libapache2-mod-wsgi
    
 
 9. To Install and configure PostgreSQL
 
    sudo apt-get install postgresql postgresql-contrib
+   
    sudo apt-get install libpq-dev
 
 10 To Install the required packages for the Item Catalog web application
 
    sudo pip install flask
+   
    sudo pip install sqlalchemy
+   
    sudo pip install requests
+   
    sudo pip install httplib2
+   
    sudo pip install oauth2client
 
 11.To Create a new user named catalog that has limited permissions 
@@ -171,38 +187,66 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
     sudo nano /etc/apache2/sites-available/ItemCatalog.conf
     Paste the following contents
     <VirtualHost *:80>
+    
       ServerName 52.89.29.8
+      
       ServerName admin@52.89.19.8
+      
       ServerAlias ec2-52-89-19-8.us-west-2.compute.amazonaws.com
 
-      WSGIScriptAlias / /var/www/ItemCatalog/Item-Catalog.wsgi
+      WSGIScriptAlias / /var/www/ItemCatalog/Item-Catalog.wsgi\
+      
       <Directory /var/www/ItemCatalog/ItemCatalog/>
+      
           Order allow,deny
+          
           Allow from all
+          
       </Directory>
+      
       Alias /static /var/www/ItemCatalog/ItemCatalog/static
+      
       <Directory /var/www/ItemCatalog/ItemCatalog/static/>
+      
           Order allow,deny
+          
           Allow from all
+          
       </Directory>
+      
       ErrorLog ${APACHE_LOG_DIR}/error.log
+      
       LogLevel warn
+      
       CustomLog ${APACHE_LOG_DIR}/access.log combined
+      
     </VirtualHost>
+    
     Enable the virtual host
+    
     sudo a2ensite ItemCatalog
+    
    
-    Create wsgi file
+    Create wsgi file 
+    
     cd /var/www/ItemCatalog
+    
     sudo nano Item-Catalog.wsgi
+    
     Paste the following
+    
     #!/usr/bin/python
+    
     import sys
+    
     import logging
+    
     logging.basicConfig(stream=sys.stderr)
+    
     sys.path.insert(0, "/var/www/ItemCatalog/")
 
     from ItemCatalog import app as application
+    
     application.secret_key = "Thisissecret"
 
 
