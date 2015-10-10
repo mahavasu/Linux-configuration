@@ -1,9 +1,14 @@
 # Linux-configuration
 IP
+
    52.89.19.8
+   
 SSH port
+
    2200
+   
 To login as grader
+
   ssh grader@52.89.19.8 -p2200 -i ~/.ssh/id_rsa
    
   grader user password :- "Udacity123"
