@@ -185,7 +185,7 @@ zTkhQuen/IhgCZoG4IVKxH3acOjhrf0NEqMl654sCksI/0Pt5aBZR7ZN1D+PDrwh
    
    sudo cd/var/www
    
-   sudo get clone https://github.com/mahavasu/ItemCatalog
+   sudo git clone https://github.com/mahavasu/ItemCatalog
 
 13. To Deploy the Item catalog app
 
